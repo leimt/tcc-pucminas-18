@@ -18,6 +18,10 @@ $ npm run dev (para rodar o projeto).
 
 Acesse localhost:4200.
 
+# Configuração do certificado digital autoassinado
+
+No diretório certificado (git)...
+
 # Compilação e execução dos módulos Java
 
 Os módulos que devem ser implantados são ModuloSeguranca, ControleCTE e ControleEntregas.
