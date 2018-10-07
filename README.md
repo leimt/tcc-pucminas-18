@@ -20,7 +20,9 @@ Acesse localhost:4200.
 
 # Configuração do certificado digital autoassinado
 
-No diretório certificado (git)...
+No diretório certificado/ (git) está o certificado digital autoassinado, o arquivo server.keystore. O arquivo deve ser colocado em $PATH_WILDFLY13/standalone/configuration/.
+
+No mesmo diretório está o arquivo standalone.xml. Ele contém as informações para configuração do XML para que o certificado seja reconhecido pelo servidor.
 
 # Compilação e execução dos módulos Java
 
