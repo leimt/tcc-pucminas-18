@@ -1,0 +1,51 @@
+
+<!-- localizar a tag security-realms e incluir as configurações abaixo -->
+<security-realms>
+	<security-realm name="PucRealm"><!-- início -->
+		<server-identities>
+			<ssl>
+			<keystore path="server.keystore" relative-to="jboss.server.config.dir" keystore-password="123456" alias="jbossWildFly"/>
+			</ssl>
+		</server-identities>
+		<authentication>
+			<local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+			<properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
+		</authentication>
+			<authorization>
+			<properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+		</authorization>
+	</security-realm><!-- fim -->
+	<!-- mais configurações aqui -->
+</security-realms>
+
+<!-- localizar a tag abaixo -->
+<subsystem xmlns="urn:jboss:domain:remoting:4.0">
+	<!-- comentar a configuração abaixo -->
+	<!-- <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/> -->
+	<!-- incluir a configuração abaixo -->
+	<http-connector name="http-remoting-connector" connector-ref="default" security-realm="PucRealm"/>
+</subsystem>
+
+<!-- localizar a tag abaixo -->
+<subsystem xmlns="urn:jboss:domain:undertow:6.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other">
+	<!-- ... -->
+	<server name="default-server">
+		<http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+		<!-- comentar a configuração abaixo -->
+		<!-- <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/> -->
+		<!-- incluir a configuração abaixo -->
+		<https-listener name="https" socket-binding="https" security-realm="PucRealm" enable-http2="true"/>
+		<!-- ... -->
+	</server>
+	<!-- ... -->
+</subsystem>
+
+<!-- localizar a tag abaixo -->
+<socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+	<!-- ... -->
+	<!-- comentar a configuração abaixo -->
+	<!-- <socket-binding name="https" port="${jboss.https.port:8443}"/> -->
+	<!-- incluir a configuração abaixo -->
+	<socket-binding name="https" port="${jboss.https.port:443}"/>
+	<!-- ... -->
+</socket-binding-group>
