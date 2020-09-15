@@ -1,6 +1,8 @@
 # TCC-PUCMinas-18
 Travaille de conclusion de cours de la PucMinas, 2018
 
+Un prototype d'une architecture logicielle intégrée et distribuée pour le domaine de la logistique des transports.
+
 Requis:
 Avoir installé ou disponibles les logiciels suivants : NPM (Node Package Manager); Maven; Java 8; Wildfly 13.
 
