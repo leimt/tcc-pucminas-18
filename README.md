@@ -1,4 +1,5 @@
-# tcc-pucminas-18
+[En français](https://github.com/leimt/tcc-pucminas-18/blob/master/README.fr.md)
+# TCC-PucMinas-18
 Trabalho de Conclusão de Curso da PucMinas 2018
 
 # Requisitos:
